@@ -28,7 +28,7 @@
                             <span class="ti-menu"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="header1"> <!-- start of menu -->
+<!--                 <!-- start of menu --> 
 <!--
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
@@ -52,17 +52,16 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" href="#">Freebies</a></li>
                         <li class="nav-item"><a class="btn btn-hire-me" href="#">Hire Me</a></li>
-                    </ul>
--->						
-							<?php 
-								wp_nav_menu(array(
-									'Theme_location'=> 'header_menu'
-									
-								))
-								
-								
-							?>
-                </div> <!--  end of menu -->
+                    </ul>-->
+                     <div class="collapse navbar-collapse" id="header1">	
+				<?php 
+					wp_nav_menu(array(
+						'theme_location'  => 'header-menu',
+						'menu_class'      => 'navbar-nav ml-auto mt-2 mt-lg-0',
+						'container'		  => false
+					));					
+				?>
+                     </div>
             </nav>
            </div> 
             <hr>

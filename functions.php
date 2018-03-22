@@ -1,4 +1,5 @@
  <?php
+
 /*======================================
 	  wrapkit enqueue Styles and Scripts 
 ========================================*/
@@ -21,12 +22,15 @@ add_action('wp_enqueue_scripts', 'wrapkit_include_styles');
 
 function wrapkit_init_menus(){
 	register_nav_menus(array(
-		'header_menu'=> __('Header Menu'),
-		'footer_menu'=> __('Footer Menu')
+		'header-menu'=> 'Header Menu',
+		'footer-menu'=> 'Footer Menu'
 	));
 }
 
 add_action('init', 'wrapkit_init_menus');
+
+
+
 /*================================================
 	Add Customize Appearance of Header Theme
 =================================================*/
