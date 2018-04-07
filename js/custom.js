@@ -35,15 +35,18 @@ $(function(){"use strict";$(function(){$('[data-toggle="tooltip"]').tooltip()}),
 
 $(function (){
    'use strict';
-       
+    
    $(window).scroll(function (){
-       if ( $(window).scrollTop() >= 250){
+       if ( $(window).scrollTop() >= 250 ){
            $(".navbar-dark").addClass("nav-bg");
+         //$(".container-fluid").removeClass("black-bg");
            $(".nav-link, .ti-menu").css("color", "#000");
            $(".btn-hire-me").css({
                color: "#000",
-               borderColor: "#000",
+               borderColor: "#000"
            });
+
+
                
    $(".nav-link").mouseleave(function (){
         $(this).css( "color", "#000");
@@ -52,16 +55,23 @@ $(function (){
    $(".white-logo").hide();
        }else{
            $(".navbar-dark").removeClass("nav-bg"); 
+           //$(".container-fluid").addClass("black-bg");
            $(".nav-link, .ti-menu").css("color", "#fff");
             $(".btn-hire-me").css({
                color: "#fff",
-               borderColor: "#fff",
+               borderColor: "#fff"
            });
             $(".black-logo").hide();
             $(".white-logo").show();
        }
    })
+
 });
+
+
+   
+
+
 $(function (){
    'use strict';
        
@@ -87,6 +97,15 @@ $(function (){
  
 });
 
+    //     $(function (){
+    //         'use strict';
+    //         var getUrl = document.querySelector(".navbar-brand").getAttribute("href");
+    //         if( $(location).attr('href') === "http:" + getUrl){
+    //             console.log("true");
+    //         }else{
+    //             console.log(window.location.href);
+    //         }
+    // });
 
 // events for contact form in home page 
 
@@ -100,10 +119,9 @@ $(function (){
             // code 
             
         });
-        
 
 
-
+         
 
 
 

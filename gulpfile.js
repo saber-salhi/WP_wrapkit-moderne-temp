@@ -10,6 +10,7 @@ var buffer      = require('vinyl-buffer');
 var browserSync = require('browser-sync').create();
 var concat      = require('gulp-concat');
 var reload      = browserSync.reload;
+var minifyCSS   = require("gulp-clean-css");
 
 
 
@@ -27,15 +28,15 @@ var jsFILES 	= [jsSRC];
 
 // browserSync parametres
 
-
-
-gulp.task('style', function(){
-    gulp.src( styleSRC )
+gulp.task("clean-css", function(){
+    return gulp.src( styleSRC )
+    .pipe(minifyCSS({KeepSpecialComments: 1}))
     .pipe(sourceMaps.init())
     .pipe( rename({suffix: '.min'}))
     .pipe(sourceMaps.write('./'))
-    .pipe(gulp.dest( styleDEST ) )
-     .pipe(browserSync.stream());
+    .pipe(gulp.dest(styleDEST))
+    .pipe(browserSync.stream());
+
 });
 
 
@@ -71,11 +72,11 @@ gulp.task('concat', function(){
 
 
 
-gulp.task('serve', ['style', 'concat'], function(){
+gulp.task('serve', ['clean-css', 'concat'], function(){
     browserSync.init({
         proxy   : "http://localhost/wordpress"
     });
-    gulp.watch(styleWatch , ['style', reload]);
+    gulp.watch(styleWatch , ['clean-css', reload]);
     gulp.watch(jsWatch, ['concat', reload]);
     gulp.watch('./**/*.php').on('change', browserSync.reload);
 });

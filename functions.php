@@ -126,3 +126,9 @@ Lots of Ready to Use Sections'
 add_action('customize_register', 'wrapkit_header_title');
 
 
+/*===================
+ include walker file
+====================*/
+
+require get_template_directory().'/inc/walker.php';
+

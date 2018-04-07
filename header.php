@@ -15,7 +15,24 @@
 <body class="">
 	<div class="header1 po-relative bg-dark">
         <div class="navbar-dark">
-        <div class="container">
+        <div class="container-fluid " id="top-navbar">
+        <script>
+            var getNavbar = document.getElementById("top-navbar");
+            document.body.onload = function(){
+            if((document.URL) !== "<?php bloginfo( 'url' ) ?>/"){
+                getNavbar.classList.add("black-bg");
+                window.addEventListener('scroll', function(e){
+                    if(window.window.scrollY > getNavbar.clientHeight){
+                         getNavbar.classList.remove("black-bg");
+                    }else{
+                        getNavbar.classList.add("black-bg");
+                    }
+                }); 
+            }else{
+                console.log("false");
+            }
+            }
+        </script>
             <!-- Header 2 code -->
             <nav class="navbar navbar-expand-lg h2-nav ">
                 <a href="<?php bloginfo('url') ?>" class="navbar-brand white-logo">
@@ -58,13 +75,13 @@
 					wp_nav_menu(array(
 						'theme_location'  => 'header-menu',
 						'menu_class'      => 'navbar-nav ml-auto mt-2 mt-lg-0',
-						'container'		  => false
+                        'container'		  => false,
+                         'walker'          => new Walker_Nav_Primary()
 					));					
 				?>
                      </div>
             </nav>
            </div> 
-            <hr>
             <!-- End Header 1 code -->
         </div>
     </div>
