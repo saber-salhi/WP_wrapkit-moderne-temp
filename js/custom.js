@@ -39,24 +39,21 @@ $(function (){
    $(window).scroll(function (){
        if ( $(window).scrollTop() >= 250 ){
            $(".navbar-dark").addClass("nav-bg");
-         //$(".container-fluid").removeClass("black-bg");
-           $(".nav-link, .ti-menu").css("color", "#000");
+         $(".fadeInUp").css("backgroundColor", "#fff");
+           $(".nav-item a, .ti-menu").css("color", "#000");
            $(".btn-hire-me").css({
                color: "#000",
                borderColor: "#000"
-           });
-
-
-               
-   $(".nav-link").mouseleave(function (){
+           });          
+   $(".nav-item a").mouseleave(function (){
         $(this).css( "color", "#000");
     })
    $(".black-logo").show();
    $(".white-logo").hide();
        }else{
            $(".navbar-dark").removeClass("nav-bg"); 
-           //$(".container-fluid").addClass("black-bg");
-           $(".nav-link, .ti-menu").css("color", "#fff");
+           $(".fadeInUp").css("backgroundColor", "#000");
+           $(".nav-item a, .ti-menu").css("color", "#fff");
             $(".btn-hire-me").css({
                color: "#fff",
                borderColor: "#fff"
@@ -67,45 +64,29 @@ $(function (){
    })
 
 });
-
-
-   
-
-
 $(function (){
    'use strict';
-       
+   
    $(window).scroll(function (){
        if ( $(window).scrollTop() >= 250){        
-     $(".nav-link").mouseenter(function (){
+     $(".nav-item a").mouseenter(function (){
         $(this).css( "color", "#188ef4");
     })
-   
-   $(".nav-link").mouseleave(function (){
+   $(".nav-item a").mouseleave(function (){
         $(this).css( "color", "#000");
     })
        }else{
-       $(".nav-link").mouseenter(function (){
+       $(".nav-item a").mouseenter(function (){
         $(this).css( "color", "red");
     })
    
-   $(".nav-link").mouseleave(function (){
+   $(".nav-item a").mouseleave(function (){
         $(this).css( "color", "#fff");
     })
        }
    })
  
 });
-
-    //     $(function (){
-    //         'use strict';
-    //         var getUrl = document.querySelector(".navbar-brand").getAttribute("href");
-    //         if( $(location).attr('href') === "http:" + getUrl){
-    //             console.log("true");
-    //         }else{
-    //             console.log(window.location.href);
-    //         }
-    // });
 
 // events for contact form in home page 
 
@@ -119,10 +100,61 @@ $(function (){
             // code 
             
         });
+window.onload = function(){
+        var secondHand = document.querySelector(".second-hand");
+        var minsHand  = document.querySelector(".min-hand");
+        var hourHand  = document.querySelector(".hour-hand");
+        var echoSeconds = document.querySelector(".Seconds");
+        var echoMinutes = document.querySelector(".Minutes");
+        var echoHours = document.querySelector(".Hours");
+          function setDate(){
+          var now = new Date();
+          var seconds = now.getSeconds();
+          var secondsDegress = ((seconds / 60) * 360) + 90;
+          secondHand.style.transform = 'rotate('+secondsDegress+'deg)';
 
+          var minutes = now.getMinutes();
+          var minutesDegrees = ((minutes / 60) * 360) + 90;
+          minsHand.style.transform = 'rotate('+minutesDegrees+'deg)';
 
+          var hours = now.getHours();
+          var hoursDegrees = ((hours / 12) * 360) + 90;
+          hourHand.style.transform = 'rotate('+hoursDegrees+'deg)';
+          if(seconds < 10 || seconds === 0){
+            echoSeconds.textContent = "0"+seconds;
+          } else {
+            echoSeconds.textContent = seconds; 
+          }
+          if(minutes < 10 || minutes === 0){
+            echoMinutes.textContent = "0"+minutes;
+          } else {
+            echoMinutes.textContent = minutes; 
+          }
+          if(hours < 10 || hours === 0){
+            echoHours.textContent = "0"+hours;
+          } else {
+            echoHours.textContent = hours; 
+          }
+          
          
+      }
+      setInterval(setDate, 1000); 
+         var animtion = document.querySelector(".animation");
+         animtion.style.display = "none";
+        
+         function checkArray(){
+             var firstSection = document.querySelector(".static-slider-head");
+             var timeIsManySection = document.getElementById("timeismany");
+             var Body = document.body;
+             if(Body.contains(firstSection)){
+                
+             } else {
+                 timeIsManySection.style.paddingTop = "200px";
+             }
 
-
+         }
+     checkArray();
+    }
+    
 
 

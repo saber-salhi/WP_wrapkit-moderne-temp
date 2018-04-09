@@ -1,5 +1,4 @@
 <?php get_header()?>
-    
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -32,19 +31,19 @@
                 <!-- ============================================================== -->
             <?php if( get_theme_mod('wrapkit_header_section_display') == 'Yes'){ ?>
                 <div class="static-slider-head" style="background-image:url(
-	                <?php																					 echo wp_get_attachment_url(get_theme_mod('wrapkit_header_image'))?>)"> 
+                        <?php echo wp_get_attachment_url(get_theme_mod('wrapkit_header_image'))?>)"> 
                    <div class="overlay"></div> 
                     <div class="container">
                         <!-- Row  -->
                         <div class="row justify-content-center">
                             <!-- Column -->
-                            <div class="col-lg-8 col-md-6 align-self-center text-center" 								data-aos="fade-up" data-aos-duration="1200">
+                            <div class="col-lg-8 col-md-6 align-self-center text-center"data-aos="fade-up" data-aos-duration="1200">
                                 <h1 class="title">
-	                                <?php 																					echo get_theme_mod('wrapkit_header_title_headline')
+	                                <?php echo get_theme_mod('wrapkit_header_title_headline')
 		                            ?>
 	                            </h1>
                                 <h4 class="subtitle font-light">
-	                                <?php 																				echo get_theme_mod('wrapkit_header_desc_headline') ?></h4> 
+	                                <?php echo get_theme_mod('wrapkit_header_desc_headline') ?></h4> 
                             </div>
                             <!-- Column -->
                         </div>
@@ -56,22 +55,40 @@
                 <!-- ============================================================== -->
                 <!-- text  -->
                 <!-- ============================================================== -->
-                <div class="spacer" id="section">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-7 text-center">
-                                <h1 class="title font-bold">Header/Navigation</h1>
-                                <h6 class="subtitle">Here you can check Demos we created based on WrapKit. Its quite easy to Create your own dream website &amp; dashboard in No-time.</h6>
-                            </div>
-                        </div>        
-                    </div>    
-                </div>
+        <?php 
+            $designPosts = new WP_Query('cat=4&posts_per_page=1');
+            if($designPosts->have_posts()){
+                while($designPosts->have_posts()){
+                    $designPosts->the_post(); ?>
+                <div class="spacer" id="timeismany" style="background-image:url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID))?>')"> <!-- spacer -->
+                <div class="overlay"></div>
+                    <div class="container"> <!-- container --> 
+                        <div class="row justify-content-center"><!-- row -->
+                            <div class="col-md-7 text-center"><!-- column -->
+                            <h1 class="title"><?php the_title() ?></h1> 
+                                <div class="clock"> <!--start clock section-->
+                                    <div class="clock-face">
+                                        <div class="hand hour-hand"></div>
+                                        <div class="hand min-hand"></div>
+                                        <div class="hand second-hand"></div>
+                                        <div class="the-time">
+                                            <div class="Seconds"></div>
+                                            <div class="Minutes"></div>
+                                            <div class="Hours"></div>
+                                        </div>
+                                    </div>
+                                </div><!--end clock section-->
+                            </div><!-- column -->
+                        </div> <!-- row -->   
+                    </div>   <!-- container --> 
+                </div>  <!-- spacer -->
+            <?php } } wp_reset_postdata(); ?>
                 <!-- ============================================================== -->
                 <!-- End text  -->
                 <!-- ============================================================== -->
                 <!-- text  -->
                 <!-- ============================================================== -->
-                <div class="spacer" id="spacer">
+                <!-- <div class="spacer" id="spacer">
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-md-7 text-center">
@@ -80,29 +97,41 @@
                             </div>
                         </div>        
                     </div>    
-                </div>
+                </div> -->
                 <!-- ============================================================== -->
                 <!-- End text  -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
                 <!-- Static Slider 10  -->
                 <!-- ============================================================== -->
-                <div class="static-slider10" style="background-image:url(assets/images/static-slider/slider10/img1.jpg)">
-                    <div class="container">
-                        <!-- Row  -->
-                        <div class="row justify-content-center ">
-                            <!-- Column -->
-                            <div class="col-md-6 align-self-center text-center" data-aos="fade-down" data-aos-duration="1200">
-                                <span class="label label-rounded label-inverse">Creating Brands</span>
-                                <h1 class="title">ONE BILLON People Use Facebook</h1>
-                                <h6 class="subtitle op-8">Pellentesque vehicula eros a dui pretium ornare. Phasellus congue vel quam nec luctus.In accumsan at eros in dignissim. Cras sodales nisi nonn accumsan.</h6>
-                                <a class="btn btn-outline-light btn-rounded btn-md btn-arrow m-t-20" data-toggle="collapse" href=""><span>Do you Need Help? <i class="ti-arrow-right"></i></span></a>
-                            </div>
-                            <!-- Column -->
 
-                        </div>
-                    </div>
-                </div>
+<!-- facebook post here  -->
+    <?php   $socialPosts = new WP_Query( 'cat=3&posts_per_page=1');
+        if ($socialPosts->have_posts()){
+        while($socialPosts->have_posts()){
+            $socialPosts->the_post() ?>
+            <div class="static-slider10 " style="background-image:url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)) ?>')"> 
+                <div class="container"><!-- container -->
+                    <div class="row justify-content-center ">   <!-- Row  --> 
+                        <div class="col-md-6  align-self-center text-center" data-aos="fade-down" data-aos-duration="1200"><!-- Column -->      
+                            <span class="label label-rounded label-inverse">
+                                <?php if(has_tag()){
+                                    the_tags('', ''. '');
+                                } ?>
+                            </span>
+                            <h1 class="title"><?php the_title() ?>
+                            </h1>
+                            <h6 class="subtitle op-8"><?php the_content( ) ?>
+                            </h6>
+                            <a class="btn btn-outline-light btn-rounded btn-md btn-arrow m-t-20" data-toggle="collapse" href="<?php the_permalink( $post->ID ) ?>">
+                                <span>Do you Need Help? <i class="ti-arrow-right"></i>
+                                </span>
+                            </a>
+                        </div> <!-- Column --> 
+                    </div><!-- Row  --> 
+                </div> <!-- container -->      
+            </div><!-- End Static Slider 10  -->
+    <?php } } wp_reset_postdata();?>               
                 <!-- ============================================================== -->
                 <!-- End Static Slider 10  -->
                 <!-- ============================================================== -->

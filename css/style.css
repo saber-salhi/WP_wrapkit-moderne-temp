@@ -34,6 +34,7 @@ File: scss
 @import url(../scss/icons/font-awesome/css/font-awesome.min.css);
 @import url(../scss/icons/simple-line-icons/css/simple-line-icons.css);
 @import url(../scss/icons/themify-icons/themify-icons.css);
+
 /*
 Template Name: Wrakit UI Kit
 Author: wrappixel
@@ -191,7 +192,7 @@ html body .db {
 }
 .navbar-dark {
     width: 100%;
-    height: 100px;
+    height: 75px;
     background: rgba(0, 0, 0, 0);
     
 }
@@ -199,6 +200,7 @@ html body .db {
     background: #fff;
     position: fixed;
     transition: all .5s ease-in-out;
+    border-bottom: 1px solid #7d7d7d;
 }
 .hov{
     color: aqua;
@@ -232,9 +234,6 @@ html body .db {
     background: rgba(0, 0, 0, 0.8);
     width: 100%;
     padding: 20px;
-}
-.black-bg{
-    background:#000;
 }
 /***************************
   end header Page
@@ -1798,7 +1797,31 @@ Fix-width
 Spacer
 *******************/
 .spacer {
-  padding: 90px 0; }
+  padding: 90px 0;
+  position: relative;
+  padding-bottom: 192px;
+}
+.spacer .overlay {
+  width:100%;
+  height:100%;
+  background: rgba(0, 0, 0, 0.85);
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+.spacer .title {
+  margin: 20px 0 15px;
+  z-index: 10;
+  color: #fff;
+  position: absolute;
+  top: -161px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
 
 .mini-spacer {
   padding: 40px 0; }
@@ -2971,5 +2994,12 @@ File: scss
     padding: 40px; }
   .dropdown-submenu > .dropdown-menu.show {
     display: block; }
+    .black-bg{
+      background:#d61f1f;
+    }
+    .hand{
+      background:#000;
+    }
+
     
  

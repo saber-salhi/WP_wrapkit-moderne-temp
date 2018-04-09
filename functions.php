@@ -125,6 +125,13 @@ Lots of Ready to Use Sections'
 
 add_action('customize_register', 'wrapkit_header_title');
 
+/*===========================
+     add theme support thumbnail
+=============================*/
+
+add_theme_support( 'post-thumbnails' );
+add_image_size('full');
+
 
 /*===================
  include walker file

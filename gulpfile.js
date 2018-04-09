@@ -17,14 +17,12 @@ var minifyCSS   = require("gulp-clean-css");
 // css gulp init
 var styleSRC 	= 'css/style.css';
 var styleDEST 	= './output/';
-var styleWatch 	= './**/*.css';
+var styleWatch 	= './css/**/*.css';
 
 // js gulp init
 var jsSRC 		= 'custom.js';
-var jsFOLDER 	= 'js/';
 var jsDEST 		= './output/js/';
 var jsWatch 	= './js/**/*.js';
-var jsFILES 	= [jsSRC];
 
 // browserSync parametres
 
@@ -39,26 +37,6 @@ gulp.task("clean-css", function(){
 
 });
 
-
-
-gulp.task('javascript', function(){
-   jsFILES.map(function( entry ){
-       return browserify({
-           entries: [ jsFOLDER +  entry ]
-       })
-       .transform( babelify, { presets: ['env'] } )
-       .bundle()
-       .pipe( source( entry ) )
-       .pipe( rename( { extname: '.min.js' } ) )
-       .pipe( buffer() )
-       .pipe( sourceMaps.init({ loadMaps: true }) )
-       .pipe( uglify() )
-       .pipe( sourceMaps.write('./'))
-       .pipe(gulp.dest( jsDEST ))
-       .pipe(browserSync.stream());
-           
-   });
-});
 
 gulp.task('concat', function(){
     return gulp.src(['node_modules/jquery/dist/jquery.min.js','js/popper.js','node_modules/bootstrap/dist/js/bootstrap.min.js', 'js/custom.js'])
