@@ -1811,7 +1811,7 @@ Spacer
   left:0;
   right:0;
 }
-.spacer .title {
+#timeismany .title {
   margin: 20px 0 15px;
   z-index: 10;
   color: #fff;

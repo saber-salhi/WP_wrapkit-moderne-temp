@@ -611,6 +611,19 @@ hr {
   }
 }
 
+/*==============================
+       Business newsletter
+===============================*/
+
+#wpcf7-f111-o1 .wpcf7-form .wpcf7-form-control-wrap input {
+  float: left;
+  width: 250px;
+}
+/* #wpcf7-f111-o1 .wpcf7-form .wpcf7-form-control-wrap input:focus::-webkit-input-placeholder{
+  transform: translate(0px,-50px);
+  transition: all .5s ease-in-out; 
+} */
+
 
 
 

@@ -39,7 +39,7 @@ gulp.task("clean-css", function(){
 
 
 gulp.task('concat', function(){
-    return gulp.src(['node_modules/jquery/dist/jquery.min.js','js/popper.js','node_modules/bootstrap/dist/js/bootstrap.min.js', 'js/custom.js'])
+    return gulp.src(['node_modules/jquery/dist/jquery.min.js','js/popper.js','node_modules/bootstrap/dist/js/bootstrap.min.js', 'js/custom.js', './admin/js/admin.js'])
     .pipe( sourceMaps.init({ loadMaps: true }) )
     .pipe(uglify())
     .pipe(concat('custom.min.js'))

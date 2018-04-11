@@ -83,28 +83,6 @@
                     </div>   <!-- container --> 
                 </div>  <!-- spacer -->
             <?php } } wp_reset_postdata(); ?>
-                <!-- ============================================================== -->
-                <!-- End text  -->
-                <!-- ============================================================== -->
-                <!-- text  -->
-                <!-- ============================================================== -->
-                <!-- <div class="spacer" id="spacer">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-7 text-center">
-                                <h1 class="title font-bold">Banners</h1>
-                                <h6 class="subtitle">Here you can check Demos we created based on WrapKit. Its quite easy to Create your own dream website &amp; dashboard in No-time.</h6>
-                            </div>
-                        </div>        
-                    </div>    
-                </div> -->
-                <!-- ============================================================== -->
-                <!-- End text  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Static Slider 10  -->
-                <!-- ============================================================== -->
-
 <!-- facebook post here  -->
     <?php   $socialPosts = new WP_Query( 'cat=3&posts_per_page=1');
         if ($socialPosts->have_posts()){
@@ -121,7 +99,7 @@
                             </span>
                             <h1 class="title"><?php the_title() ?>
                             </h1>
-                            <h6 class="subtitle op-8"><?php the_content( ) ?>
+                            <h6 class="subtitle op-8"><?php the_excerpt() ?>
                             </h6>
                             <a class="btn btn-outline-light btn-rounded btn-md btn-arrow m-t-20" data-toggle="collapse" href="<?php the_permalink( $post->ID ) ?>">
                                 <span>Do you Need Help? <i class="ti-arrow-right"></i>
@@ -131,86 +109,74 @@
                     </div><!-- Row  --> 
                 </div> <!-- container -->      
             </div><!-- End Static Slider 10  -->
-    <?php } } wp_reset_postdata();?>               
+    <?php } } wp_reset_postdata(); ?>               
                 <!-- ============================================================== -->
                 <!-- End Static Slider 10  -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
                 <!-- Static Slider 3  -->
                 <!-- ============================================================== -->
+
+                <!-- start works posts section -->
+                <?php 
+                   $args = array( 'post_type' => 'works', 'posts_per_page' => 1, 'taxonomy' => 'work_service');
+                  $WorksPosts = new WP_Query($args);
+                  if( $WorksPosts->have_posts()){
+                    while( $WorksPosts->have_posts()){
+                        $WorksPosts->the_post() ?>
                 <div class="static-slider3">
                     <div class="container">
                         <!-- Row  -->
                         <div class="row justify-content-center ">
                             <!-- Column -->
                             <div class="col-md-8 align-self-center text-center" data-aos="fade-right" data-aos-duration="1200">
-                                <h1 class="title">I’m Johanthan Doe, an <b class="font-bold">Entreprenuer, Designer & Front-end Developer</b>, Making <span class="text-success-gradiant font-bold typewrite" data-period="2000" data-type='[ "Photoshop", "Web Application", "Web Designing", "Web Development" ]'></span></h1>
-                                <a class="btn btn-success-gradiant btn-md btn-arrow m-t-20" data-toggle="collapse" href=""><span>Checkout My Work <i class="ti-arrow-right"></i></span></a>
+                                <h1 class="title"><?php the_title( ) ?><b class="font-bold"><?php the_excerpt() ?></b> <span class="text-success-gradiant font-bold typewrite" data-period="2000" data-type='[ "Photoshop", "Web Application", "Web Designing", "Web Development" ]'></span></h1>
+                                <a class="btn btn-success-gradiant btn-md btn-arrow m-t-20" data-toggle="collapse" href="<?php the_permalink( $post->ID ) ?>"><span>Checkout My Work <i class="ti-arrow-right"></i></span></a>
                             </div>
                             <!-- Column -->
 
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Static Slider 3  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- text  -->
-                <!-- ============================================================== -->
-                <div class="spacer bg-light">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-7 text-center">
-                                <h1 class="title font-bold">Form Banner</h1>
-                                <h6 class="subtitle">Here you can check Demos we created based on WrapKit. Its quite easy to Create your own dream website &amp; dashboard in No-time.</h6>
-                            </div>
-                        </div>        
-                    </div>    
-                </div>
-                <!-- ============================================================== -->
-                <!-- End text  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Form 1  -->
-                <!-- ============================================================== -->
+                <?php } } wp_reset_postdata(); ?>
+                <!-- Start Business Real boost -->
+
+                <?php 
+                // $postsbusiness = array( 'post_type' => 9, 'posts_per_page' => 1);
+                $businessPosts = new WP_Query('cat=9');
+                    if($businessPosts->have_posts()){
+                        while($businessPosts->have_posts()){
+                            $businessPosts->the_post(); ?>
                 <div class="bg-light">
+                
                     <section>
-                        <div id="banner1" class="banner spacer" style="background-image:url(assets/images/form-banners/banner1/banner-bg.jpg);">
+                        <div id="banner1" class="banner spacer">
+                            <?php   
+                                if (class_exists('MultiPostThumbnails')) : 
+                                MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'secondary-image');
+                                endif;
+                            ?>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-7 col-lg-5 align-self-center" data-aos="fade-right" data-aos-duration="1500">
-                                        <h2 class="title font-bold">Give your Business Real boost Now!</h2>
-                                        <p class="m-t-40 m-b-30">To accomplish great things, we must not only act, but also dream; not only plan, but also believe.</p>
+                                        <h2 class="title font-bold"><?php the_title() ?></h2>
+                                        <p class="m-t-40 m-b-30"><?php the_excerpt() ?></p>
                                         <div class="m-t-40">
-                                            <input type="text" name="email" placeholder="Enter Email Address" class="font-16" />
-                                            <input type="submit" value="Get Started" class="bg-success-gradiant font-semibold font-16 btn-rounded text-uppercase text-white text-center" />
+                                        <?php echo do_shortcode('[contact-form-7 id="111" title="Contact form 1"]' ) ?>
                                         </div>
                                     </div>
                                     <div class="col-md-5 col-lg-6 align-self-center ml-auto" data-aos="fade-left" data-aos-duration="1500">
-                                        <img src="assets/images/form-banners/banner1/banner-img.png" alt="We are Digital Agency" class="img-fluid" />
+                                        <img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID) ) ?>" alt="We are Digital Agency" class="img-fluid" />
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                     </section>
                 </div>
+                 <!-- End Business Real boost -->
+                 <?php } } wp_reset_postdata() ?>
                 <!-- ============================================================== -->
-                <!-- End Form 1  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- text  -->
-                <!-- ============================================================== -->
-                <div class="spacer bg-light">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-7 text-center">
-                                <h1 class="title font-bold">Features</h1>
-                                <h6 class="subtitle">Here you can check Demos we created based on WrapKit. Its quite easy to Create your own dream website &amp; dashboard in No-time.</h6>
-                            </div>
-                        </div>        
-                    </div>    
-                </div>
+       
                 <!-- ============================================================== -->
                 <!-- End text  -->
                 <!-- ============================================================== -->
@@ -287,7 +253,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 text-center">
-                                            <a href="javascript:void(0)" class="text-white linking bg-success-gradiant">Lets Talk <i class="ti-arrow-right"></i></a>
+                                            <a href="" class="text-white linking bg-success-gradiant">Lets Talk <i class="ti-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -306,7 +272,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 text-center">
-                                            <a href="javascript:void(0)" class="text-white linking bg-success-gradiant">Lets Talk <i class="ti-arrow-right"></i></a>
+                                            <a href="" class="text-white linking bg-success-gradiant">Lets Talk <i class="ti-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -325,7 +291,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 text-center">
-                                            <a href="javascript:void(0)" class="text-white linking bg-success-gradiant">Lets Talk <i class="ti-arrow-right"></i></a>
+                                            <a href="" class="text-white linking bg-success-gradiant">Lets Talk <i class="ti-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -344,7 +310,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 text-center">
-                                            <a href="javascript:void(0)" class="text-white linking bg-success-gradiant">Lets Talk <i class="ti-arrow-right"></i></a>
+                                            <a href="" class="text-white linking bg-success-gradiant">Lets Talk <i class="ti-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -899,8 +865,8 @@
                             <div class="col-md-10 col-lg-7 text-center" data-aos="fade-up">
                                 <h2 class="title text-white">Grab our IOS or Android App from Stores</h2>
                                 <h6 class="subtitle text-white op-7 m-b-20">You can relay on our amazing features list and also our customer services will be great experience for you without doubt and in no-time.</h6>
-                                <a href="javascript:void(0)" class="m-b-20"><img src="assets/images/features/feature48/app-strore.png" /></a>
-                                <a href="javascript:void(0)" class="m-b-20"><img src="assets/images/features/feature48/play-store.png" /></a>
+                                <a href="" class="m-b-20"><img src="assets/images/features/feature48/app-strore.png" /></a>
+                                <a href="" class="m-b-20"><img src="assets/images/features/feature48/play-store.png" /></a>
                             </div>
                         </div>
                     </div>

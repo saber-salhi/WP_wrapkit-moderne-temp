@@ -88,18 +88,6 @@ $(function (){
  
 });
 
-// events for contact form in home page 
-
-  
-        $('a').on('click', function (event) {
-            var $anchor = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $($anchor.attr('href')).offset().top - 90
-            }, 1000);
-            event.preventDefault();
-            // code 
-            
-        });
 window.onload = function(){
         var secondHand = document.querySelector(".second-hand");
         var minsHand  = document.querySelector(".min-hand");
@@ -141,20 +129,46 @@ window.onload = function(){
       setInterval(setDate, 1000); 
          var animtion = document.querySelector(".animation");
          animtion.style.display = "none";
-        
+         var firstSection = document.querySelector(".static-slider-head");
+         var timeIsManySection = document.getElementById("timeismany");
+         var Body = document.body;
          function checkArray(){
-             var firstSection = document.querySelector(".static-slider-head");
-             var timeIsManySection = document.getElementById("timeismany");
-             var Body = document.body;
-             if(Body.contains(firstSection)){
-                
+             if(Body.contains(firstSection)){  
              } else {
                  timeIsManySection.style.paddingTop = "200px";
              }
-
          }
      checkArray();
+   
     }
     
+
+
+function getImgAttribute(){
+    var banner1 = document.querySelector("#banner1");
+    var img = document.querySelector("#banner1 img");
+    var sourceAttribue = img.getAttribute("src");
+    banner1.setAttribute("style", "background-image:url('"+sourceAttribue+"')");
+    img.remove();
+}
+
+getImgAttribute();
+
+/*function typeTextLive(){
+    var inputValue = document.querySelector("#wpcf7-f111-o1 .wpcf7-form .wpcf7-form-control-wrap input ");
+    var getPlaceHolder = inputValue.getAttribute("placeholder"); 
+    var appendedText = document.querySelector("#banner1 div.m-t-40");
+    var text = document.createElement("span");
+    inputValue.addEventListener('keyup', function(){
+        textTyped = document.createTextNode(inputValue.value);
+        appendedText.appendChild(text);
+        text.appendChild(textTyped);
+        textTyped.addEventListener('change' , function(){
+
+        })   
+     })
+} */
+
+// admin js 
 
 
