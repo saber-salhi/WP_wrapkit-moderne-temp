@@ -122,9 +122,7 @@ window.onload = function(){
             echoHours.textContent = "0"+hours;
           } else {
             echoHours.textContent = hours; 
-          }
-          
-         
+          }  
       }
       setInterval(setDate, 1000); 
          var animtion = document.querySelector(".animation");
@@ -139,11 +137,67 @@ window.onload = function(){
              }
          }
      checkArray();
+     // start slider 
+
+     var  sliderImages  = document.querySelectorAll(".slide"),
+     arrowLeft    = document.getElementById("arrow-left"),
+     arrowRight   = document.getElementById("arrow-right"),
+     wrap         = document.querySelector(".wrap"),
+     current      = 0;
    
-    }
-    
-
-
+        reset(); // call the function here
+        // initialization  of slider 
+        function reset(){
+            for(var i = 0; i < sliderImages.length; i++){
+                sliderImages[i].style.display = "none";
+                }
+            current++;
+            console.log(current++);
+            if(current > sliderImages.length){  
+                current = 1    
+                }
+            sliderImages[current - 1].style.display = "block";
+            current--;
+            var timer = setTimeout(reset, 5000);
+            wrap.addEventListener("mouseover", function(){
+                clearTimeout(timer);
+                });
+            // show previous slide button
+            arrowLeft.addEventListener("click", function(){
+                function slideLeft(){
+                    for(var i = 0; i < sliderImages.length; i++){
+                        sliderImages[i].style.display = "none";
+                    }
+                    current--;
+                    sliderImages[current].style.display = "block";
+                    }
+                    if(current === 0){
+                        current = 4;
+                        current--;
+                    }
+                slideLeft();
+            });
+            // show next slide button
+            arrowRight.addEventListener("click", function(){
+                function slideRight(){
+                    for(var i = 0; i < sliderImages.length; i++){
+                        sliderImages[i].style.display = "none";
+                        }
+                    current++;
+                    sliderImages[current].style.display = "block";
+                    console.log(current);
+                    if(current === sliderImages.length - 1){
+                        current = -1;
+                    }
+                }
+                slideRight();
+            });
+    }   
+    // restart the slider when mouse is leave
+    wrap.addEventListener("mouseleave", function(){
+        setTimeout(reset, 1500);
+    });
+    } // end of window load function
 function getImgAttribute(){
     var banner1 = document.querySelector("#banner1");
     var img = document.querySelector("#banner1 img");
@@ -170,5 +224,28 @@ getImgAttribute();
 } */
 
 // admin js 
+
+
+
+        // auto slider
+
+
+        // reset();
+        // function reset(){
+        //     for(var i = 0; i < sliderImages.length; i++){
+        //         sliderImages[i].style.display = "none";
+        
+        //     }
+        //     current++;
+        //     if(current > sliderImages.length){
+        //         current = 1
+        //     }
+        //     sliderImages[current - 1].style.display = "block";
+        //     setTimeout(reset, 3000);
+            
+        // } 
+    
+
+      
 
 

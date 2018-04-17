@@ -1,7 +1,7 @@
 /*
 Template Name: Wrapkit
-Author: wrappixel
-Email: niravjoshi87@gmail.com
+Author: salhi saber
+Email: sabersalhi16@gmail.com
 File: scss
 */
 /*Theme Colors*/
@@ -46,6 +46,7 @@ Static slide 10
     color: #ffffff;
     line-height: 30px;
     font-size: 18px;
+    padding-top: 32px;
 }
 
 /*******************
@@ -87,7 +88,8 @@ Static slide 10
     font-size: 48px;
     line-height: 50px; }
   .static-slider10 .subtitle {
-    color: #ffffff; }
+    color: #ffffff;
+   }
 
 @media (max-width: 900px) {
   .static-slider10 .title {
@@ -618,11 +620,112 @@ hr {
 #wpcf7-f111-o1 .wpcf7-form .wpcf7-form-control-wrap input {
   float: left;
   width: 250px;
+  padding-left: 10px;
 }
 /* #wpcf7-f111-o1 .wpcf7-form .wpcf7-form-control-wrap input:focus::-webkit-input-placeholder{
   transform: translate(0px,-50px);
   transition: all .5s ease-in-out; 
 } */
+
+/*======================
+   start slider style 
+ =======================*/
+.slide {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.wrap, #slider, .slide {
+  position: relative;
+}
+.wrap .container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 4;
+  height: 0px;
+}
+.slide .slider-content {
+  position: absolute;
+  top: calc(50% - 95px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center; 
+  margin: auto;
+  z-index: 4;
+  
+}
+.slide .slider-content h1{
+  color: #fff;
+  font-size: 5rem;
+}
+.fa-arrow-circle-right,
+.fa-arrow-circle-left {
+  font-size: 40px !important;
+  color: #fff;
+  transition: all 2s ease-in-out;
+
+}
+.arrow{
+  position: absolute;
+  top: calc(50% - 15px);
+  cursor: pointer;
+  z-index: 2;
+  transition: all 2s ease-in-out;
+}
+.fa-arrow-circle-right:hover,
+.fa-arrow-circle-left:hover{
+   background:-webkit-linear-gradient(bottom left,#2cdd9b 0,#17a2b8 100%);
+   background:-moz-linear-gradient(bottom left,#2cdd9b 0,#17a2b8 100%);
+   background:-o-linear-gradient(bottom left,#2cdd9b 0,#17a2b8 100%);
+   background:-ms-linear-gradient(bottom left,#2cdd9b 0,#17a2b8 100%);
+   background:linear-gradient(bottom left,#2cdd9b 0,#17a2b8 100%);
+   -webkit-background-clip:text;
+   -moz-background-clip:text;
+   -o-background-clip:text;
+   -ms-background-clip:text;
+   background-clip:text;
+   -webkit-text-fill-color: transparent;
+   -moz-text-fill-color: transparent;
+   -o-text-fill-color: transparent;
+   -ms-text-fill-color: transparent;
+   transition: all 2s ease-in-out;
+
+}
+#arrow-left {
+  margin-left: 30px;
+  transition: all 2s ease-in-out;
+}
+#arrow-right{
+  margin-right: 30px;
+  right:0;
+  transition: all 2s ease-in-out;
+}
+.slide {
+  animation-name: slideshow;
+  animation-duration: .3s;
+  animation-timing-function: ease-in-out;
+}
+@keyframes slideshow {
+  0% {
+    opacity: .4;
+  }
+  50%{
+    opacity: .7;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+ /*======================
+   End slider style 
+ =======================*/
 
 
 

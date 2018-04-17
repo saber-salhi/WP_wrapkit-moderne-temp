@@ -15,52 +15,59 @@
                 </div>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- Top header  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
+        <!-- start page wraper -->
+        <div class="page-wrapper"> 
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Static Slider 10  -->
-                <!-- ============================================================== -->
-            <?php if( get_theme_mod('wrapkit_header_section_display') == 'Yes'){ ?>
-                <div class="static-slider-head" style="background-image:url(
-                        <?php echo wp_get_attachment_url(get_theme_mod('wrapkit_header_image'))?>)"> 
-                   <div class="overlay"></div> 
-                    <div class="container">
-                        <!-- Row  -->
-                        <div class="row justify-content-center">
-                            <!-- Column -->
-                            <div class="col-lg-8 col-md-6 align-self-center text-center"data-aos="fade-up" data-aos-duration="1200">
-                                <h1 class="title">
-	                                <?php echo get_theme_mod('wrapkit_header_title_headline')
-		                            ?>
-	                            </h1>
-                                <h4 class="subtitle font-light">
-	                                <?php echo get_theme_mod('wrapkit_header_desc_headline') ?></h4> 
-                            </div>
-                            <!-- Column -->
+                   <!-- start slide Section -->
+    <?php if( get_theme_mod('wrapkit_header_section_display') == 'Yes'){ ?>
+       <div class="wrap static-slider-head">
+            <div class="overlay"></div> 
+                <div id="slider">
+                    <div class="slide slide-1" style="background-image:url(<?php echo wp_get_attachment_url(get_theme_mod('wrapkit_header_image'))?>)">
+                        <div class="slider-content">
+                            <h1><?php echo get_theme_mod('wrapkit_header_title_headline')?></h1>
+                            <p class="subtitle font-light">
+                                <?php echo  get_theme_mod('wrapkit_header_desc_headline') ?>
+                            </p>
+                            <a class="btn btn-success-gradiant btn-md btn-arrow m-t-20 link-slider" data-toggle="collapse" href="<?php echo the_permalink(get_theme_mod('wrapkit_link_page')) ?>">
+                                <span><?php echo get_theme_mod('wrapkit_text_of_link_1')?><i class="ti-arrow-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide slide-2" style="background-image:url(<?php echo wp_get_attachment_url(get_theme_mod('wrapkit_slide_image_2'))?>)">
+                        <div class="slider-content">
+                            <h1><?php echo get_theme_mod('wrapkit_slider_2_title_headline') ?></h1>
+                            <p class="subtitle font-light">
+                                <?php echo get_theme_mod('wrapkit_slider_2_desc_headline')?>
+                            </p>
+                            <a class="btn btn-success-gradiant btn-md btn-arrow m-t-20 link-slider" data-toggle="collapse" href="<?php echo the_permalink(get_theme_mod('wrapkit_link_page_2')) ?>">
+                                <span><?php echo get_theme_mod('wrapkit_text_of_link_2')?><i class="ti-arrow-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide slide-3" style="background-image:url(<?php echo wp_get_attachment_url(get_theme_mod('wrapkit_slide_image_3'))?>)">
+                        <div class="slider-content">
+                            <h1><?php echo get_theme_mod('wrapkit_slider_3_title_headline')?></h1>
+                            <p class="subtitle font-light"><?php echo get_theme_mod('wrapkit_slider_3_desc_headline')?></p>
+                            <a class="btn btn-success-gradiant btn-md btn-arrow m-t-20 link-slider" data-toggle="collapse" href="<?php echo the_permalink(get_theme_mod('wrapkit_link_page_3')) ?>">
+                                <span><?php echo get_theme_mod('wrapkit_text_of_link_3')?><i class="ti-arrow-right"></i></span>
+                            </a>
                         </div>
                     </div>
                 </div>
-            <?php } ?>
-                <!-- End Static Slider 10  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- text  -->
-                <!-- ============================================================== -->
+                <div class="container">
+                    <div class="arrow" id="arrow-left"><i class="fa fa-arrow-circle-left"></i></div>
+                    <div class="arrow" id="arrow-right"><i class="fa fa-arrow-circle-right"></i></div>
+                </div>
+       </div>
+        <!-- end slide Section -->
+    <?php } ?>
         <?php 
             $designPosts = new WP_Query('cat=4&posts_per_page=1');
             if($designPosts->have_posts()){
                 while($designPosts->have_posts()){
                     $designPosts->the_post(); ?>
-                <div class="spacer" id="timeismany" style="background-image:url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID))?>')"> <!-- spacer -->
+                <div class="spacer" id="timeismany"> <!-- spacer -->
                 <div class="overlay"></div>
                     <div class="container"> <!-- container --> 
                         <div class="row justify-content-center"><!-- row -->
@@ -82,7 +89,7 @@
                         </div> <!-- row -->   
                     </div>   <!-- container --> 
                 </div>  <!-- spacer -->
-            <?php } } wp_reset_postdata(); ?>
+        <?php } } wp_reset_postdata(); ?>
 <!-- facebook post here  -->
     <?php   $socialPosts = new WP_Query( 'cat=3&posts_per_page=1');
         if ($socialPosts->have_posts()){
@@ -117,64 +124,63 @@
                 <!-- Static Slider 3  -->
                 <!-- ============================================================== -->
 
-                <!-- start works posts section -->
-                <?php 
-                   $args = array( 'post_type' => 'works', 'posts_per_page' => 1, 'taxonomy' => 'work_service');
-                  $WorksPosts = new WP_Query($args);
-                  if( $WorksPosts->have_posts()){
-                    while( $WorksPosts->have_posts()){
-                        $WorksPosts->the_post() ?>
-                <div class="static-slider3">
-                    <div class="container">
-                        <!-- Row  -->
-                        <div class="row justify-content-center ">
-                            <!-- Column -->
-                            <div class="col-md-8 align-self-center text-center" data-aos="fade-right" data-aos-duration="1200">
-                                <h1 class="title"><?php the_title( ) ?><b class="font-bold"><?php the_excerpt() ?></b> <span class="text-success-gradiant font-bold typewrite" data-period="2000" data-type='[ "Photoshop", "Web Application", "Web Designing", "Web Development" ]'></span></h1>
-                                <a class="btn btn-success-gradiant btn-md btn-arrow m-t-20" data-toggle="collapse" href="<?php the_permalink( $post->ID ) ?>"><span>Checkout My Work <i class="ti-arrow-right"></i></span></a>
-                            </div>
-                            <!-- Column -->
-
+    <!-- start works posts section -->
+    <?php 
+        $args = array( 'post_type' => 'works', 'posts_per_page' => 1, 'taxonomy' => 'work_service');
+        $WorksPosts = new WP_Query($args);
+        if( $WorksPosts->have_posts()) {
+            while( $WorksPosts->have_posts()) {
+                $WorksPosts->the_post() ?>
+            <div class="static-slider3">
+                <div class="container">
+                    <!-- Row  -->
+                    <div class="row justify-content-center ">
+                        <!-- Column -->
+                        <div class="col-md-8 align-self-center text-center" data-aos="fade-right" data-aos-duration="1200">
+                            <h1 class="title"><?php the_title( ) ?><b class="font-bold"><?php the_excerpt() ?></b> <span class="text-success-gradiant font-bold typewrite" data-period="2000" data-type='[ "Photoshop", "Web Application", "Web Designing", "Web Development" ]'></span></h1>
+                            <a class="btn btn-success-gradiant btn-md btn-arrow m-t-20" data-toggle="collapse" href="<?php the_permalink( $post->ID ) ?>"><span>Checkout My Work <i class="ti-arrow-right"></i></span></a>
                         </div>
+                        <!-- Column -->
                     </div>
+                    <!-- Row  -->
                 </div>
-                <?php } } wp_reset_postdata(); ?>
-                <!-- Start Business Real boost -->
-
-                <?php 
-                // $postsbusiness = array( 'post_type' => 9, 'posts_per_page' => 1);
-                $businessPosts = new WP_Query('cat=9');
-                    if($businessPosts->have_posts()){
-                        while($businessPosts->have_posts()){
-                            $businessPosts->the_post(); ?>
-                <div class="bg-light">
-                
-                    <section>
-                        <div id="banner1" class="banner spacer">
-                            <?php   
-                                if (class_exists('MultiPostThumbnails')) : 
-                                MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'secondary-image');
-                                endif;
-                            ?>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-7 col-lg-5 align-self-center" data-aos="fade-right" data-aos-duration="1500">
-                                        <h2 class="title font-bold"><?php the_title() ?></h2>
-                                        <p class="m-t-40 m-b-30"><?php the_excerpt() ?></p>
-                                        <div class="m-t-40">
-                                        <?php echo do_shortcode('[contact-form-7 id="111" title="Contact form 1"]' ) ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5 col-lg-6 align-self-center ml-auto" data-aos="fade-left" data-aos-duration="1500">
-                                        <img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID) ) ?>" alt="We are Digital Agency" class="img-fluid" />
+            </div>
+    <?php } } wp_reset_postdata(); ?>
+    <!-- End Business Real boost -->
+       
+    <?php     // $postsbusiness = array( 'post_type' => 9, 'posts_per_page' => 1);
+        $businessPosts = new WP_Query('cat=9');
+            if($businessPosts->have_posts()){
+                while($businessPosts->have_posts()){
+                    $businessPosts->the_post(); ?>
+            <div class="bg-light">
+            
+                <section>
+                    <div id="banner1" class="banner spacer">
+                        <?php   
+                            if (class_exists('MultiPostThumbnails')) : 
+                            MultiPostThumbnails::the_post_thumbnail(get_post_type(), 'secondary-image');
+                            endif;
+                        ?>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-5 align-self-center" data-aos="fade-right" data-aos-duration="1500">
+                                    <h2 class="title font-bold"><?php the_title() ?></h2>
+                                    <p class="m-t-40 m-b-30"><?php the_excerpt() ?></p>
+                                    <div class="m-t-40">
+                                    <?php echo do_shortcode('[contact-form-7 id="111" title="Contact form 1"]' ) ?>
                                     </div>
                                 </div>
+                                <div class="col-md-5 col-lg-6 align-self-center ml-auto" data-aos="fade-left" data-aos-duration="1500">
+                                    <img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID) ) ?>" alt="We are Digital Agency" class="img-fluid" />
+                                </div>
                             </div>
-                        </div> 
-                    </section>
-                </div>
-                 <!-- End Business Real boost -->
-                 <?php } } wp_reset_postdata() ?>
+                        </div>
+                    </div> 
+                </section>
+            </div>
+    <?php } } wp_reset_postdata() ?>
+      <!-- End Business Real boost -->
                 <!-- ============================================================== -->
        
                 <!-- ============================================================== -->

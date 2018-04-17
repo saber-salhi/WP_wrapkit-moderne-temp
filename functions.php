@@ -74,7 +74,7 @@ add_action('customize_register', 'wrapkit_custom_logo');
 // customize section one[1]
 function wrapkit_header_title($wp_customize){
 	$wp_customize->add_section('wrapkit_header_title_section', array(
-		'title'=> 'Header Title',
+		'title'=> 'Slider Show',
 		'priority'=> 3
 		
 		
@@ -90,20 +90,39 @@ function wrapkit_header_title($wp_customize){
 		'type'=> 'select',
 		'choices'=> array('No'=> 'No', 'Yes'=>'Yes')
 	)));
-	
-	//  Headline here 
+
+
+	// start slider 1 customizer
+	//  Title slider 1 here 
 	$wp_customize->add_setting('wrapkit_header_title_headline', array(
 		'default'=> 'Wrapkit Lite'
 	));
 	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'wrapkit_header_control_headline', array(
-		'label'=> 'Headline',
+		'label'=> 'Title Slider 1',
 		'section'=> 'wrapkit_header_title_section',
 		'settings'=> 'wrapkit_header_title_headline'
 	)));
-	// description here 
+	// Link Of slider 1 here 
+	$wp_customize->add_setting('wrapkit_link_page');
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'wrapkit_link', array(
+		'label'		=> 'Link',
+		'type'		=> 'dropdown-pages',
+		'section'	=> 'wrapkit_header_title_section',
+		'settings'	=> 'wrapkit_link_page'
+	)));
+	// Text of Link slider 1 here 
+	$wp_customize->add_setting('wrapkit_text_of_link_1', array(
+		'default'=> 'Checkout My Work '
+	));
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'wrapkit_text_of_link_1', array(
+		'label'=> 'Text of link',
+		'section'=> 'wrapkit_header_title_section',
+		'settings'=> 'wrapkit_text_of_link_1'
+	)));
+
+	// description slider 1 here 
 	$wp_customize->add_setting('wrapkit_header_desc_headline', array(
-		'default'=> 'Free Bootstrap 4 UI Kit with
-Lots of Ready to Use Sections'
+		'default'=> 'Description of Slider Number 1'
 	));
 	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'wrapkit_header_control_description', array(
 		'label'=> 'Description',
@@ -112,22 +131,120 @@ Lots of Ready to Use Sections'
 		'settings'=> 'wrapkit_header_desc_headline'
 	)));
 	
-	// image here 
+	// image slider 1 here 
 	$wp_customize->add_setting('wrapkit_header_image');
 	$wp_customize->add_control( new WP_Customize_cropped_image_control($wp_customize, 'wrapkit_image_control', array(
-		'label'=> 'Image',
+		'label'=> 'Image Slider 1',
 		'section'=> 'wrapkit_header_title_section',
 		'settings'=> 'wrapkit_header_image',
 		'width'=> 1920,
 		'height'=> 1080
 	)));
+
+
+	// start slider 2 customizer
+	//  Title slider 1 here 
+	$wp_customize->add_setting('wrapkit_slider_2_title_headline', array(
+		'default'=> 'Title Slider 2'
+	));
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'wrapkit_slider_2_control_headline', array(
+		'label'=> 'Title Slider 2',
+		'section'=> 'wrapkit_header_title_section',
+		'settings'=> 'wrapkit_slider_2_title_headline'
+	)));
+	// Link Of slider 2 here 
+	$wp_customize->add_setting('wrapkit_link_page_2');
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'wrapkit_link_2', array(
+		'label'		=> 'Link',
+		'type'		=> 'dropdown-pages',
+		'section'	=> 'wrapkit_header_title_section',
+		'settings'	=> 'wrapkit_link_page_2'
+	)));
+	// Text of Link slider 2 here 
+	$wp_customize->add_setting('wrapkit_text_of_link_2', array(
+		'default'=> 'Checkout My Work '
+	));
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'wrapkit_text_of_link_2', array(
+		'label'=> 'Text of link',
+		'section'=> 'wrapkit_header_title_section',
+		'settings'=> 'wrapkit_text_of_link_2'
+	)));
+	// description slider 2 here 
+	$wp_customize->add_setting('wrapkit_slider_2_desc_headline', array(
+		'default'=> 'Description of Slider Number 2'
+	));
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'wrapkit_slider_2_control_description', array(
+		'label'=> 'Description',
+		'type'=> 'textarea',
+		'section'=> 'wrapkit_header_title_section',
+		'settings'=> 'wrapkit_slider_2_desc_headline'
+	)));
+	// image slider 2 here
+	$wp_customize->add_setting('wrapkit_slide_image_2');
+	$wp_customize->add_control( new WP_Customize_cropped_image_control($wp_customize, 'wrapkit_image_control_2', array(
+		'label'=> 'Image Slider 2',
+		'section'=> 'wrapkit_header_title_section',
+		'settings'=> 'wrapkit_slide_image_2',
+		'width'=> 1920,
+		'height'=> 1080
+	)));
+
+	// start slider 3 customizer
+	//  Title slider 3 here 
+	$wp_customize->add_setting('wrapkit_slider_3_title_headline', array(
+		'default'=> 'Slider Title 3'
+	));
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'wrapkit_slider_3_control_headline', array(
+		'label'=> 'Title Slider 3',
+		'section'=> 'wrapkit_header_title_section',
+		'settings'=> 'wrapkit_slider_3_title_headline'
+	)));
+	// Link Of slider 2 here 
+	$wp_customize->add_setting('wrapkit_link_page_3');
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'wrapkit_link_3', array(
+		'label'		=> 'Link',
+		'type'		=> 'dropdown-pages',
+		'section'	=> 'wrapkit_header_title_section',
+		'settings'	=> 'wrapkit_link_page_3'
+	)));
+	$wp_customize->add_setting('wrapkit_text_of_link_3', array(
+		'default'=> 'Checkout My Work '
+	));
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'wrapkit_text_of_link_3', array(
+		'label'=> 'Text of link',
+		'section'=> 'wrapkit_header_title_section',
+		'settings'=> 'wrapkit_text_of_link_3'
+	)));
+
+	// description slider 3 here 
+	$wp_customize->add_setting('wrapkit_slider_3_desc_headline', array(
+		'default'=> 'Description of Slider Number 3'
+	));
+	$wp_customize->add_control( new WP_Customize_Control($wp_customize, 'wrapkit_slider_3_control_description', array(
+		'label'=> 'Description',
+		'type'=> 'textarea',
+		'section'=> 'wrapkit_header_title_section',
+		'settings'=> 'wrapkit_slider_3_desc_headline'
+	)));
+	// image slider 3 here
+	$wp_customize->add_setting('wrapkit_slide_image_3');
+	$wp_customize->add_control( new WP_Customize_cropped_image_control($wp_customize, 'wrapkit_image_control_3', array(
+		'label'=> 'Image Slider 3',
+		'section'=> 'wrapkit_header_title_section',
+		'settings'=> 'wrapkit_slide_image_3',
+		'width'=> 1920,
+		'height'=> 1080
+	)));
+
+
+
 }
 
 add_action('customize_register', 'wrapkit_header_title');
 
-/*===========================
-     add theme support thumbnail
-=============================*/
+/*======================================
+     add theme support second thumbnail
+=======================================*/
 
 add_theme_support( 'post-thumbnails' );
 // second post thumbnail 
